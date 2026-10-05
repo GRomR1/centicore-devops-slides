@@ -1,0 +1,66 @@
+name: Deploy Slidev to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 11.20.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Prepare public assets
+        run: |
+          mkdir -p documents/public
+          [ -e documents/public/assets ] || ln -s ../assets documents/public/assets
+
+      - name: Build Slidev
+        run: |
+          pnpm exec slidev build documents/slides.md --base / --without-notes
+
+      - name: Copy PDF & CNAME to dist
+        run: |
+          echo "centicore-devops.gainanov.pro" > documents/dist/CNAME
+          cp documents/export.pdf documents/dist/export.pdf
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v6
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: documents/dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

@@ -1,0 +1,358 @@
+/* T1 Лампа — corporate theme
+ * Design tokens extracted from template_t1_lampa.pptx (see DESIGN.md).
+ * Canvas: 960×540px (16:9); template 13.333in → 72px/in, sizes scaled ×0.72.
+ */
+
+:root {
+  --t1-ink: #2a2d30;
+  --t1-blue: #1daff7;
+  --t1-deep: #0082b0;
+  --t1-navy: #004574;
+  --t1-gray: #aeb1b7;
+  --t1-orange: #f16108;
+  --t1-mist: #ebf2fa;
+  --t1-gold: #f6af3c;
+  --t1-card-gray: #f7f7f9;
+
+  /* theme primary = brand blue */
+  --slidev-theme-primary: var(--t1-blue);
+}
+
+.slidev-layout {
+  /* master margins: 0.47in left/right, 0.46in top, 0.6in bottom on 13.333in canvas */
+  padding: 44px 46px 52px;
+  height: 100%;
+  font-size: 16.5px;
+  line-height: 1.45;
+  color: var(--t1-ink);
+
+  h1 {
+    font-size: 37px;
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 10px 0;
+    margin-left: -0.02em;
+  }
+
+  h2 {
+    font-size: 29px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 16px 0 8px;
+  }
+
+  h3 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-top: 12px;
+  }
+
+  h4 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  h5 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  h6 {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.6;
+  }
+
+  p {
+    margin: 8px 0;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  ul li {
+    position: relative;
+    line-height: 1.55;
+    margin-bottom: 6px;
+  }
+
+  ul li::before {
+    content: '+';
+    position: absolute;
+    left: -1.2em;
+    top: 0;
+    font-weight: 700;
+    color: var(--t1-blue);
+  }
+
+  ol {
+    list-style: none;
+    counter-reset: t1ol;
+  }
+
+  ol > li {
+    position: relative;
+    line-height: 1.55;
+    margin-bottom: 6px;
+    counter-increment: t1ol;
+  }
+
+  ol > li::before {
+    content: counter(t1ol);
+    position: absolute;
+    left: -1.55em;
+    top: 0;
+    width: 1.15em;
+    height: 1.15em;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--t1-blue);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  blockquote {
+    background: var(--t1-mist);
+    color: var(--t1-ink);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 15px;
+  }
+
+  blockquote > * {
+    margin: 4px 0;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  tr {
+    border-bottom: 1px solid #d8dbe2;
+  }
+
+  thead tr {
+    border-bottom: 2px solid var(--t1-blue);
+  }
+
+  thead th {
+    font-weight: 700;
+    padding: 8px;
+  }
+
+  th {
+    text-align: left;
+    font-weight: 400;
+  }
+
+  td,
+  th {
+    padding: 6px 8px;
+  }
+
+  a {
+    color: var(--t1-blue);
+    text-decoration: underline;
+    border: none;
+  }
+
+  a:hover {
+    opacity: 0.8;
+  }
+
+  b,
+  strong {
+    font-weight: 700;
+  }
+
+  pre,
+  code {
+    user-select: text;
+  }
+
+  code {
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  pre {
+    background: #262b33;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 12px 0;
+  }
+
+  pre code {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+/* ============ master elements (CSS chrome on every .slidev-layout) ============ */
+
+.slidev-layout {
+  position: relative;
+}
+
+/* T1 "plus" logo, top-right; masked so it takes currentColor */
+.slidev-layout::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 11px;
+  width: 32px;
+  height: 22px;
+  color: var(--t1-blue);
+  background-color: currentColor;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 88.65 63.16'><path d='M37.94,25.21 L63.09,25.21 L63.09,38.01 L37.94,38.01 L37.94,63.16 L25.15,63.16 L25.15,38.01 L0,38.01 L0,25.21 L25.15,25.21 L25.15,0.06 L37.94,0.06 L37.94,25.21 L37.94,25.21 Z M75.86,0 L75.86,63.16 L88.65,63.16 L88.65,0 L75.86,0 Z'/></svg>") no-repeat center / 100% 100%;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 88.65 63.16'><path d='M37.94,25.21 L63.09,25.21 L63.09,38.01 L37.94,38.01 L37.94,63.16 L25.15,63.16 L25.15,38.01 L0,38.01 L0,25.21 L25.15,25.21 L25.15,0.06 L37.94,0.06 L37.94,25.21 L37.94,25.21 Z M75.86,0 L75.86,63.16 L88.65,63.16 L88.65,0 L75.86,0 Z'/></svg>") no-repeat center / 100% 100%;
+  z-index: 10;
+}
+
+/* footer hairline, master: y 6.35in of 7.5in, x 0.47→10.6in */
+.slidev-layout::after {
+  content: '';
+  position: absolute;
+  left: 46px;
+  bottom: 40px;
+  width: 0%;
+  height: 1px;
+  background: var(--t1-ink);
+  opacity: 0.16;
+  z-index: 10;
+}
+
+/* ============ brand backgrounds ============ */
+
+.t1-blue-bg {
+  background: var(--t1-blue);
+  color: #fff;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li,
+  blockquote {
+    color: #fff;
+  }
+
+  blockquote {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+  }
+
+  ul li::before {
+    color: #fff;
+  }
+
+  ol > li::before {
+    background: #fff;
+    color: var(--t1-blue);
+  }
+
+  a {
+    color: #fff;
+  }
+
+  tr {
+    border-bottom-color: rgba(255, 255, 255, 0.35);
+  }
+
+  thead tr {
+    border-bottom-color: #fff;
+  }
+}
+
+.t1-gold-bg {
+  background: var(--t1-gold);
+  color: #fff;
+
+  h1,
+  h2,
+  h3 {
+    color: #fff;
+  }
+
+  p,
+  li {
+    color: #fff;
+  }
+
+  ul li::before {
+    color: #fff;
+  }
+
+  a {
+    color: #fff;
+  }
+}
+
+.t1-blue-bg::before,
+.t1-gold-bg::before {
+  color: #fff;
+}
+
+.t1-blue-bg::after,
+.t1-gold-bg::after {
+  background: #fff;
+  opacity: 0.5;
+}
+
+/* ============ cards (плашки) ============ */
+
+.t1-card {
+  background: var(--t1-mist);
+  border-radius: 10px;
+  padding: 14px 16px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.t1-card h1,
+.t1-card h2,
+.t1-card h3,
+.t1-card h4 {
+  font-weight: 700;
+  font-size: 17px;
+  margin: 0 0 8px;
+}
+
+.t1-card ul {
+  margin: 0;
+}
+
+.t1-card ul li {
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.t1-card.accent {
+  background: var(--t1-blue);
+  color: #fff;
+}
+
+.t1-card.accent h1,
+.t1-card.accent h2,
+.t1-card.accent h3,
+.t1-card.accent h4 {
+  color: #fff;
+}
+
+.t1-card.accent ul li::before {
+  color: #fff;
+}

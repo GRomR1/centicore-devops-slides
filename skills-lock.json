@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "skills": {
+    "humanizer": {
+      "source": "blader/humanizer",
+      "sourceType": "github",
+      "computedHash": "0e456dd5eb31b1fa120b9a584d8661ef591d58d8e0dbe585a24cd2698becf9bb"
+    },
+    "mermaid-cli": {
+      "source": "dashed/claude-marketplace",
+      "sourceType": "github",
+      "computedHash": "86012239b8c6fce7929cce1addb2e25fd69921c403823855394c755203242069"
+    },
+    "slidev": {
+      "source": "slidevjs/slidev",
+      "sourceType": "github",
+      "skillPath": "skills/slidev/SKILL.md",
+      "computedHash": "a495cfada5d3b29c66c2fbbccb4ef9887d6b12bd7e440d100deea89e529c1a7b"
+    }
+  }
+}
