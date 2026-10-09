@@ -67,12 +67,34 @@ layout: default
 title: Ограничения со стороны правительства
 ---
 
-<!-- TODO
-отрази общую заметку касательно потенциальных ограничения со стороны властей (как нашей страны, так и зарубежных государств) на доступ к AI-инструментам. ниже детали:
-Российский закон марта 2026 дал властям полномочия запрещать зарубежные AI‑инструменты, а Пекин обсуждает лимиты доступа из‑за рубежа к своим топ‑моделям. 
-read https://www.reuters.com/business/russia-give-itself-sweeping-powers-ban-or-restrict-foreign-ai-tools-2026-03-20
-read https://www.reuters.com/world/beijing-is-looking-curbing-overseas-access-chinas-top-ai-models-sources-say-2026-07-07
--->
+# Риски регуляторики и ограничений
+
+Доступ к внешним облачным моделям находится под двойным давлением:
+
+<div class="grid grid-cols-2 gap-4 mt-4">
+  <div class="t1-card">
+    <h3 class="font-bold text-base text-gray-800">🇷🇺 Внутренние ограничения (РФ, 2026)</h3>
+    <ul class="text-sm mt-2 space-y-2 text-gray-700">
+      <li><strong>Полномочия на запрет:</strong> закон марта 2026 расширил права регуляторов по ограничению и блокировке зарубежных AI-инструментов.</li>
+      <li><strong>Безопасность данных:</strong> требования по КИИ, ФЗ-152 и защите коммерческой тайны делают внешний cloud-инференс юридически рискованным.</li>
+      <li><strong>Риск непрерывности:</strong> вероятность внезапного отключения рабочих сервисов и инструментов разработки.</li>
+    </ul>
+  </div>
+  <div class="t1-card">
+    <h3 class="font-bold text-base text-gray-800">🌏 Внешние барьеры (Пекин и Запад)</h3>
+    <ul class="text-sm mt-2 space-y-2 text-gray-700">
+      <li><strong>Лимиты из Пекина:</strong> обсуждение мер по ограничению трансграничного доступа к передовым китайским AI-моделям (Qwen, Kimi, DeepSeek).</li>
+      <li><strong>Санкционные фильтры:</strong> блокировки аккаунтов, карт и корпоративных подписок со стороны западных провайдеров.</li>
+      <li><strong>Технологическая автономия:</strong> зависимость от внешнего API ставит бизнес под удар геополитики.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="mt-4">
+  <blockquote>
+    <strong>Вывод:</strong> Доверять критические процессы чужому облаку нельзя. Локальный запуск open-weight моделей — единственный способ гарантировать бесперебойность.
+  </blockquote>
+</div>
 
 ---
 layout: center
@@ -179,17 +201,13 @@ layout: default
 </div>
 
 <!--
----
 layout: image
 image: /assets/kimi-k3-score.png
 backgroundSize: contain
----
 
----
 layout: image
 image: /assets/self-hosted-kimi.png
 backgroundSize: contain
----
 -->
 
 ---
@@ -250,31 +268,96 @@ layout: default
 3. **Рабочая станция (200–600 тыс. ₽)**
 4. **Enterprise (от 600 тыс. ₽)**
 
----
+<!--
 layout: image
 image: /assets/work-hardware.png
 backgroundSize: contain
 title: Сравнение сборок для домашнего запуска LLM
 class: bg-black
----
+-->
 
 ---
 layout: default
 title: Таблица со сравнением на 2026 год
 ---
 
-<!-- TODO: отформатировать таблицу в html и проверить что она и весь контент влазит и нормально отображается
-|                          | NVIDIA RTX 4090         | Apple Mac Mini M5 Pro | AMD Ryzen AI Halo        | NVIDIA DGX Spark         |
-|--------------------------|-------------------------|-----------------------|--------------------------|--------------------------|
-| Price                    | $1,599                  | $1,699                | $3,999                   | $4,699                   |
-| Chip                     | Ada Lovelace            | M5 Pro                | Ryzen AI Max+ 395        | GB10 Grace Blackwell     |
-| Memory / bandwidth       | 24GB GDDR6X / 1010 GB/s | 24-64GB / 307 GB/s    | 128GB LPDDR5X / 256 GB/s | 128GB LPDDR5x / 273 GB/s |
-| Token gen (Llama3 8B)    | ~105 tok/s              | ~45 tok/s             | ~45 tok/s                | ~55 tok/s                |
-| Token gen (gpt-oss 120B) | No Fit                  | No Fit                | ~34 tok/s                | ~39 tok/s                |
-| Latency                  | ~35 мс                  | ~120 мс               | ~150 мс                  | ~70 мс                   |
-| Software stack           | CUDA                    | Apple MLX             | ROCm / Vulkan            | CUDA                     |
-| TDP                      | 450W                    | 145W                  | 140W                     | 240W                     |
--->
+# Сравнение платформ для инференса (2026)
+
+<div class="overflow-x-auto mt-2">
+  <table class="w-full text-xs border-collapse">
+    <thead>
+      <tr class="bg-gray-100 text-gray-800 border-b-2 border-blue-500">
+        <th class="py-1.5 px-2 text-left font-bold">Параметр</th>
+        <th class="py-1.5 px-2 text-left font-bold text-blue-600">NVIDIA RTX 4090</th>
+        <th class="py-1.5 px-2 text-left font-bold">Apple Mac Mini M5 Pro</th>
+        <th class="py-1.5 px-2 text-left font-bold">AMD Ryzen AI Halo</th>
+        <th class="py-1.5 px-2 text-left font-bold text-orange-600">NVIDIA DGX Spark</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200">
+      <tr>
+        <td class="py-1 px-2 font-semibold text-gray-700">Price (USD)</td>
+        <td class="py-1 px-2 font-semibold">$1,599</td>
+        <td class="py-1 px-2 font-semibold">$1,699</td>
+        <td class="py-1 px-2 font-semibold">$3,999</td>
+        <td class="py-1 px-2 font-semibold">$4,699</td>
+      </tr>
+      <tr>
+        <td class="py-1 px-2 font-semibold text-gray-700">Chip / Arch</td>
+        <td class="py-1 px-2">Ada Lovelace</td>
+        <td class="py-1 px-2">M5 Pro</td>
+        <td class="py-1 px-2">Ryzen AI Max+ 395</td>
+        <td class="py-1 px-2">GB10 Grace Blackwell</td>
+      </tr>
+      <tr>
+        <td class="py-1 px-2 font-semibold text-gray-700">Memory / Bandwidth</td>
+        <td class="py-1 px-2"><strong>24GB GDDR6X</strong> / 1010 GB/s</td>
+        <td class="py-1 px-2"><strong>24–64GB</strong> / 307 GB/s</td>
+        <td class="py-1 px-2"><strong>128GB LPDDR5X</strong> / 256 GB/s</td>
+        <td class="py-1 px-2"><strong>128GB LPDDR5X</strong> / 273 GB/s</td>
+      </tr>
+      <tr>
+        <td class="py-1 px-2 font-semibold text-gray-700">Token gen (Llama3 8B)</td>
+        <td class="py-1 px-2 text-green-700 font-semibold">~105 tok/s</td>
+        <td class="py-1 px-2">~45 tok/s</td>
+        <td class="py-1 px-2">~45 tok/s</td>
+        <td class="py-1 px-2 font-semibold">~55 tok/s</td>
+      </tr>
+      <tr>
+        <td class="py-1 px-2 font-semibold text-gray-700">Token gen (gpt-oss 120B)</td>
+        <td class="py-1 px-2 text-red-500 font-semibold">No Fit (мало VRAM)</td>
+        <td class="py-1 px-2 text-red-500 font-semibold">No Fit (&lt;120GB)</td>
+        <td class="py-1 px-2 text-green-700 font-semibold">~34 tok/s</td>
+        <td class="py-1 px-2 text-green-700 font-semibold">~39 tok/s</td>
+      </tr>
+      <tr>
+        <td class="py-1 px-2 font-semibold text-gray-700">Latency (TTFT)</td>
+        <td class="py-1 px-2 font-semibold text-green-700">~35 мс</td>
+        <td class="py-1 px-2">~120 мс</td>
+        <td class="py-1 px-2">~150 мс</td>
+        <td class="py-1 px-2">~70 мс</td>
+      </tr>
+      <tr>
+        <td class="py-1 px-2 font-semibold text-gray-700">Software stack</td>
+        <td class="py-1 px-2">CUDA / vLLM / SGLang</td>
+        <td class="py-1 px-2">Apple MLX / Ollama</td>
+        <td class="py-1 px-2">ROCm / Vulkan / llama.cpp</td>
+        <td class="py-1 px-2">CUDA / vLLM / TensorRT-LLM</td>
+      </tr>
+      <tr>
+        <td class="py-1 px-2 font-semibold text-gray-700">TDP (Потребление)</td>
+        <td class="py-1 px-2 text-red-600 font-semibold">450W</td>
+        <td class="py-1 px-2 text-green-700 font-semibold">145W</td>
+        <td class="py-1 px-2 text-green-700 font-semibold">140W</td>
+        <td class="py-1 px-2">240W</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="mt-3 text-xs text-gray-600">
+  💡 <em>RTX 4090 — лидер по скорости и задержкам на моделях до 32B, но для 70B–120B+ требуются системы с объединенной памятью от 128 ГБ (AMD Halo, DGX Spark).</em>
+</div>
 
 ---
 layout: center
@@ -306,7 +389,6 @@ layout: collage
 title: Что еще продают на авито
 ---
 
-<!-- TODO: -->
 <div class="grid grid-cols-3 grid-rows-2 w-full h-full gap-0 m-0 bg-black">
   <div v-click class="bg-contain bg-center bg-no-repeat w-full h-full" style="background-image: url('/assets/avito-funs/fun1.png')"></div>
   <div v-click class="bg-contain bg-center bg-no-repeat w-full h-full" style="background-image: url('/assets/avito-funs/fun2.png')"></div>
@@ -324,207 +406,276 @@ layout: section
 
 ---
 layout: default
-title: Юнит-экономика и расчеты. Методика расчета стоимости 1 миллиона токенов на своем железе с примером RTX 4090
+title: "Юнит-экономика и расчеты: методика расчета стоимости 1M токенов на своем железе (RTX 4090)"
 ---
 
-<!-- TODO: 
-use https://sli.dev/features/latex
-read https://www.klerk.ru/blogs/k2tex/708924 (via firecrawl)
+# Расчёт стоимости 1M токенов (On-Premise)
 
-общая методика используй ее в качестве основы для расчета стоимости для этого и двух следующих слайдов.
-на этом слайде отрази общую методику (или алгорити) расчета стоимости 1 миллиона токенов на локальном железе. для своего железа на примере покупки сервера с RTX4090 TDP 450 Вт за 400000 рублей с амортизацией 2 года, с учетом электичества по ставке 8 руб./кВт*ч и без учета стоимости обслуживания и ЦОД.
+<div class="grid grid-cols-2 gap-3 mt-4">
+<div class="flex flex-col gap-1.5">
 
+<div class="t1-card !p-2 !h-auto">
 
-## Базовая формула
-
-Основное уравнение для выделенного GPU:
-
-\[
-\text{Cost}_{1M} = \frac{\text{GPU\_hour\_price}}{\text{TPS}_{\text{eff}} \times 3600} \times 1{,}000{,}000
-\]
-
-где:
-
-- \(\text{GPU\_hour\_price}\) — полная стоимость часа GPU (аренда по прайсу либо амортизация + электричество + ЦОД + доля ФОТ). 
-- \(\text{TPS}_{\text{eff}}\) — эффективная пропускная способность в токенах/сек. 
-- 3600 — секунд в часе; множитель 1 000 000 переводит в «за миллион токенов». 
-
-Если вы хотите явно учесть утилизацию \(U\) (доля времени под полезной нагрузкой):
-
-\[
-\text{TPS}_{\text{eff}} = \text{TPS}_{\text{peak}} \times U
-\]
-\[
-\text{Cost}_{1M} = \frac{\text{GPU\_hour\_price}}{\text{TPS}_{\text{peak}} \times U \times 3600} \times 1{,}000{,}000
-\]
-
-## Что именно подставлять в формулу
-
-### 1) Полная стоимость GPU‑часа
-
-Для аренды: берёте почасовой тариф из прайса (on‑demand / spot / коммит). 
-
-Для своего железа (CAPEX):
-
-\[
-\text{GPU\_hour\_price} = \frac{\text{CAPEX}/\text{Часы\_жизни} + \text{Мощность\_кВт} \times \text{Тариф\_электро} + \text{ЦОД} + \text{Доля\_ФОТ}}{1}
-\]
-
-На практике часто считают упрощённо:
-
-- Амортизация: стоимость сервера / срок жизни в часах. 
-- Электричество: TDP карты × коэффициент загрузки × тариф (не забывая про простой: GPU в idle тоже ест). 
-- ЦОД/размещение и доля инженера (хотя бы 4–10 ч/мес на поддержку). 
-
-### 2) Оценить утилизацию
-
-\[
-U = \frac{\text{фактические токены за период}}{\text{TPS}_{\text{peak}} \times \text{секунд в периоде}}
-\]
-
-## Пошаговый алгоритм расчёта
-
-1. **Определите профиль нагрузки:** short/balanced/long (короткие чаты, RAG 4–8K, агенты с 32K+). Это задаст лимиты max_context/max_tokens и пулы. 
-2. **Посчитайте полную стоимость GPU‑часа** (аренда или CAPEX+OPEX). 
-3. **Вычислите эффективный TPS**:
-   - \(\text{TPS}_{\text{eff}} = \frac{\text{токены за период}}{\text{секунд в периоде}}\).
-4. **Подставьте в формулу**:
-
-\[
-\text{Cost}_{1M} = \frac{\text{GPU\_hour\_price}}{\text{TPS}_{\text{eff}} \times 3600} \times 1{,}000{,}000
-\]
-
-
-## Структура полной стоимости GPU‑часа
-
-### 1) Амортизация (CAPEX)
-
-Считаете стоимость сервера и раскладываете на часы жизни:
-
-\[
-\text{Amort}_{\text{hour}} = \frac{\text{Capex}_{\text{server}}}{\text{Life}_{\text{hours}}}
-\]
-
-- \(\text{Capex}_{\text{server}}\) — полная стоимость сервера (GPU + CPU + RAM + NVMe + корпус + PSU + доставка + НДС). 
-- \(\text{Life}_{\text{hours}}\) — срок жизни в часах (обычно 3 года ≈ 26 280 ч, иногда 4–5 лет для «железа в стойке»). 
-
-### 2) Электричество
-
-\[
-\text{Power}_{\text{hour}} = \text{Power}_{\text{kW}} \times \text{Tariff}_{\text{rub/kWh}}
-\]
-
-- \(\text{Power}_{\text{kW}}\) — средняя мощность сервера под нагрузкой (не TDP одной карты, а всего шасси: GPU + CPU + RAM + диски + PSU losses). 
-- \(\text{Tariff}\) — тариф на электроэнергию (для ЦОД обычно выше, чем «домашний»). 
-
-Типичные цифры:
-
-- 1×RTX 4090/5090 система: 0.6–1.2 кВт под нагрузкой.
-
-### 3) ЦОД / размещение
-
-\[
-\text{DC}_{\text{hour}} = \frac{\text{Rack\_price\_per\_month}}{\text{Hours\_per\_month}} \times \text{Rack\_share}
-\]
-
-Или по юнитам/кВт, если тарификация за мощность:
-
-- Фикс за юнит/стойку + доплата за кВт.
-- Плюс cross‑connect, IP‑адреса, DDoS, remote hands. 
-
-На практике для 1–2 юнитов в хорошем московском ЦОД это может быть 10–30k ₽/мес за стойку/юнит, что в пересчёте на 1 сервер даёт несколько $/час. 
-
-### 4) Доля ФОТ / эксплуатация
-
-Самый часто забываемый, но критичный компонент:
-
-\[
-\text{Ops}_{\text{hour}} = \frac{\text{Monthly\_Ops\_Cost}}{\text{Hours\_per\_month}} \times \text{Share\_for\_this\_GPU}
-\]
-
-Включает:
-
-- Зарплата инженеров (MLOps/SRE/DevOps), которые поддерживают кластер, драйверы, CUDA, vLLM/SGLang, мониторинг, алерты, инциденты. 
-- Время на установку, замену, диагностику железа, RMA, переустановку образов, обновления BIOS/firmware. 
-- Дежурства, on‑call, постмортемы.
-
-Даже если «один сервер», на него всё равно тратится 4–10 ч/мес инженера; при зарплате 300–500k ₽/мес это уже ощутимая добавка к GPU‑часу. 
-
-утилизацию GPU для инференса считают не как «GPU util из nvidia‑smi», а как **долю времени, когда карта реально генерирует токены (decode) или делает prefill**, либо через **отношение фактически отданных токенов к максимально возможным за тот же период**. Типичные цифры в продакшене: **20–60% по времени** и **10–40% по токенам** от «пикового» TPS; ниже 10% — почти всегда экономически плохо, выше 60–70% — уже близко к пределу для интерактивных сценариев без очередей. 
-
-## Что именно считать «утилизацией»
-
-Для LLM‑инференса полезно различать три метрики:
-
-1. **GPU time utilization (по времени)**  
-   $$
-   U_{\text{time}} = \frac{\text{секунды с активным prefill/decode}}{\text{всего секунд в периоде}}
-   $$
-   - «Активный» = когда на GPU идёт prefill или decode, а не idle / ожидание сети / ожидание токенов от пользователя. 
-
-2. **Throughput utilization (по токенам)**  
-   $$
-   U_{\text{tokens}} = \frac{\text{фактические токены за период}}{\text{TPS}_{\text{peak}} \times \text{секунд в периоде}}
-   $$
-   - $$\text{TPS}_{\text{peak}}$$ — пиковая пропускная способность вашей конфигурации (модель + квант + батч + стек) на длинном устойчивом прогоне. 
-
-3. **Compute utilization (из метрик GPU)**  
-   - `gpu_util` из nvidia‑smi / DCGM / Prometheus: доля времени, когда хотя бы один ядро/тензор‑ядро был занят.  
-   - Полезно, но для инференса часто **завышает** «полезную» утилизацию: карта может быть «занята» короткими префиллами, копированием, простоями в очереди. 
-
-Для экономики токена ключевая — **$$U_{\text{tokens}}$$**, потому что именно она напрямую влияет на стоимость 1M токенов:
+<h4 class="!text-xs !mb-0.5 text-gray-800">1. Базовая формула</h4>
 
 $$
-\text{Cost}_{1M} = \frac{\text{GPU\_hour\_price}}{\text{TPS}_{\text{peak}} \times U_{\text{tokens}} \times 3600} \times 1{,}000{,}000
+\text{Cost}_{1\text{M}} = \frac{\text{GPU\_hour\_price}}{\text{TPS}_{\text{peak}} \times U \times 3600} \times 10^6
 $$
 
-**сколько токенов вы реально отдаёте относительно пикового TPS**. 
+<div class="text-[10px] text-gray-600 mt-0.5 mb-0">
 
-## Как использовать утилизацию в расчётах
+где $U$ — утилизация (доля отданных токенов от пика), $\text{TPS}_{\text{eff}} = \text{TPS}_{\text{peak}} \times U$.
 
-1. **Сначала замеряете $$\text{TPS}_{\text{peak}}$$** для вашей конфигурации:
-   - Модель + квант (FP16/FP8/INT4).
-   - Контекст (4K/8K/32K).
-   - Батч и параметры scheduler’а (vLLM/SGLang). 
+</div>
 
-2. **Собираете метрики за репрезентативный период** (минимум неделя):
-   - Суммарные токены (input + output).
-   - Часы работы инференс‑сервера.
+</div>
 
-3. **Считаете $$U_{\text{tokens}}$$** и подставляете в формулу стоимости 1M токенов. 
+<div class="t1-card !p-2 !h-auto">
 
-4. **Делаете «what‑if»**:
-   - Что будет, если:
-     - Ужесточить `max_tokens`?
-     - Ввести long‑пул и short‑пул?
-     - Увеличить батч / включить prefix caching?
-     - Перейти на более агрессивный квант?
-   - Это покажет, как вырастет утилизация и упадёт цена токена. 
+<h4 class="!text-xs !mb-0.5 text-gray-800">2. Стоимость GPU-часа (CAPEX)</h4>
 
--->
+$$
+\text{GPU\_hour} = \frac{\text{CAPEX}}{\text{Life}_{\text{hours}}} + P_{\text{kW}} \times \text{Tariff}
+$$
+
+<div class="text-[10px] text-gray-600 space-y-0.5 !mt-0.5">
+
+- **CAPEX:** 400 000 руб. за сервер RTX 4090 (24 ГБ).
+- **Амортизация (2 года = 17 520 ч):** $400\,000 / 17\,520 =$ **22.83 руб./ч**.
+- **Электроэнергия (TDP 450 Вт, 8 руб./кВт·ч):** $0.45 \text{ кВт} \times 8 \text{ руб.} =$ **3.60 руб./ч**.
+- **Полная стоимость часа:** $22.83 + 3.60 =$ **26.43 руб./час**.
+
+</div>
+
+</div>
+
+</div>
+
+<div>
+
+<div class="t1-card !p-2">
+
+#### 3. Расчёт для RTX 4090 ($\text{TPS}_{\text{peak}} = 45\text{ tok/s}$)
+
+<div class="space-y-1">
+
+<div class="bg-white p-1 rounded border border-gray-200">
+
+**Высокая нагрузка ($U = 50\%$):** <span class="font-bold text-blue-600 float-right">~32.6 ₽ / 1M токенов</span>
+
+$$
+\frac{26.43}{45 \times 0.50 \times 3600} \times 10^6 \approx 32.63\text{ руб.}
+$$
+
+</div>
+
+<div class="bg-white p-1 rounded border border-gray-200">
+
+**Офисный сценарий ($U = 10\%$):** <span class="font-bold text-orange-600 float-right">~163.1 ₽ / 1M токенов</span>
+
+$$
+\frac{26.43}{45 \times 0.10 \times 3600} \times 10^6 \approx 163.15\text{ руб.}
+$$
+
+</div>
+
+<div class="bg-white p-1 rounded border border-gray-200">
+
+**Редкие запросы ($U = 2\%$):** <span class="font-bold text-red-600 float-right">~815.7 ₽ / 1M токенов</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
 
 ---
 layout: default
-title: Юнит-экономика и расчеты. Тот же расчет стоимости 1 миллиона токенов но в случае аренды RTX 4090 в облаке Selectel
+title: "Аренда выделенного GPU RTX 4090 в Selectel"
 ---
 
-<!-- TODO: 
+# Аренда GPU: стоимость 1M токенов (Dedicated)
 
-на этом слайде посчитай стоимость 1 миллиона токенов для выделенного GPU с арендой и известной стоимостью часа (на примере аренды сервера RTX4090 на месяц в selectel за 62309 ₽/‍мес) с учетом утилизации 10%.
+<div class="grid grid-cols-2 gap-3">
+<div class="flex flex-col gap-2">
 
-use latex
--->
+<div class="t1-card !p-2.5 !h-auto">
+
+<h4 class="!mb-1 text-gray-800">1. Параметры тарифа Selectel</h4>
+
+<div class="text-[11px] text-gray-700 space-y-0.5">
+
+- **Конфигурация:** Сервер с 1× RTX 4090 24 ГБ.
+- **Ежемесячная стоимость:** 62 309 руб. / месяц.
+- **Количество часов в месяце:** $30 \times 24 = 720\text{ часов}$.
+
+</div>
+
+<div class="bg-white p-1.5 rounded border border-gray-200 mt-1.5">
+<div class="text-[11px] text-gray-600">Стоимость 1 часа аренды:</div>
+
+$$
+\text{GPU\_hour} = \frac{62\,309\text{ руб.}}{720\text{ ч}} \approx \mathbf{86.54\text{ руб./час}}
+$$
+
+<div class="text-[10px] text-gray-500 mt-0.5">
+(включает электричество, стойку, канал, базовую поддержку)
+</div>
+</div>
+
+</div>
+
+<div class="t1-card !p-2.5 !h-auto">
+
+<h4 class="!mb-1 text-gray-800">2. Входные данные для инференса</h4>
+
+<div class="text-[11px] text-gray-600 space-y-0.5">
+
+- Модель: **Qwen3.8-27B**.
+- Пиковая скорость: $\text{TPS}_{\text{peak}} = 45\text{ tok/s}$.
+- Реалистичная утилизация: $U = 10\%$.
+
+</div>
+
+</div>
+
+</div>
+
+<div>
+
+<div class="t1-card !p-2.5 !h-auto">
+
+#### 3. Расчёт стоимости при $U = 10\%$
+
+$$
+\text{Cost}_{1\text{M}} = \frac{\text{GPU\_hour}}{\text{TPS}_{\text{peak}} \times U \times 3600} \times 10^6
+$$
+
+<div class="bg-white p-2 rounded border border-gray-200 my-1.5">
+<div class="text-[11px] text-gray-600">Подставляем значения:</div>
+
+$$
+\text{Cost}_{1\text{M}} = \frac{86.54}{45 \times 0.10 \times 3600} \times 10^6 \approx \mathbf{534.2\text{ руб.}}
+$$
+
+<div class="text-xs font-bold text-orange-600 mt-0.5">
+~534 ₽ за 1 миллион токенов
+</div>
+</div>
+
+<h4 class="!text-[11px] !mb-1 text-gray-700">Сравнение при разной утилизации:</h4>
+
+<div class="grid grid-cols-3 gap-1.5 text-center">
+<div class="p-1 bg-gray-50 rounded border border-gray-200">
+<div class="text-[10px] text-gray-500">Нагрузка 50%</div>
+<div class="text-xs font-bold text-blue-600">~106.8 ₽</div>
+</div>
+<div class="p-1 bg-orange-50 rounded border border-orange-200">
+<div class="text-[10px] text-gray-500">Нагрузка 10%</div>
+<div class="text-xs font-bold text-orange-600">~534.2 ₽</div>
+</div>
+<div class="p-1 bg-red-50 rounded border border-red-200">
+<div class="text-[10px] text-gray-500">Нагрузка 2%</div>
+<div class="text-xs font-bold text-red-600">~2 671 ₽</div>
+</div>
+</div>
+
+<div class="mt-2 text-[10px] text-gray-500">
+
+📌 *Облачный dedicated GPU снимает CAPEX, но час в ~3.3 раза дороже своего железа.*
+
+</div>
+
+</div>
+
+</div>
+</div>
 
 ---
 layout: default
-title: Юнит-экономика и расчеты. Сравнение стоимости 1 миллиона токенов в случае использования своего железа, облака, оплаты за токены
+title: "Сравнение экономики 1M токенов: On-Premise, Selectel и Cloud.ru"
 ---
 
-<!-- TODO: 
-на этом слайде сравни два предыдущих расчет со стоимостью для оплаты за токены в cloud.ru (модель Qwen3 32B входные/генерируемые токены, с НДС): 43 рубля за 1 млн. входных токенов, 173 рубля - за 1 млн. генерируемых (выходных).
+# Сравнение стоимости 1M токенов
 
-use latex
--->
+<div class="grid grid-cols-3 gap-3 mt-2">
+<div class="t1-card !p-3">
+
+<div class="text-xs uppercase tracking-wide font-bold text-blue-600">Вариант 1</div>
+<h3 class="font-bold text-sm text-gray-800 mt-1 mb-2">Своё железо (CAPEX)</h3>
+
+- **Сервер:** 1× RTX 4090 (400k ₽)
+- **Час работы:** ~26.4 ₽/час
+
+<hr class="my-2 border-gray-200" />
+
+- При $U = 50\%$: **~33 ₽**
+- При $U = 10\%$: **~163 ₽**
+- При $U = 2\%$: **~816 ₽**
+
+<div class="mt-3 text-[10px] text-gray-500 bg-white p-1.5 rounded border border-gray-200">
+✅ Мин. цена при нагрузке<br/>
+⚠️ Нужен начальный бюджет
+</div>
+
+</div>
+
+<div class="t1-card !p-3">
+
+<div class="text-xs uppercase tracking-wide font-bold text-orange-600">Вариант 2</div>
+<h3 class="font-bold text-sm text-gray-800 mt-1 mb-2">Selectel (Dedicated)</h3>
+
+- **Аренда:** 1× RTX 4090 (62.3k ₽/мес)
+- **Час работы:** ~86.5 ₽/час
+
+<hr class="my-2 border-gray-200" />
+
+- При $U = 50\%$: **~107 ₽**
+- При $U = 10\%$: **~534 ₽**
+- При $U = 2\%$: **~2 671 ₽**
+
+<div class="mt-3 text-[10px] text-gray-500 bg-white p-1.5 rounded border border-gray-200">
+✅ Быстрый старт без покупки<br/>
+⚠️ Оплата за всё время (24/7)
+</div>
+
+</div>
+
+<div class="t1-card !p-3">
+
+<div class="text-xs uppercase tracking-wide font-bold text-purple-600">Вариант 3</div>
+<h3 class="font-bold text-sm text-gray-800 mt-1 mb-2">Cloud.ru (Pay-as-you-go)</h3>
+
+- **Модель:** Qwen3 (Models API)
+- **Тариф:** 43 ₽ вх. / 173 ₽ вых.
+
+<hr class="my-2 border-gray-200" />
+
+<div class="text-xs mt-3">
+Средневзвешенная смесь ($3:1$ in/out):
+
+$$
+\text{Cost}_{1\text{M}} = \frac{3 \times 43 + 1 \times 173}{4} \approx \mathbf{75.5\text{ руб.}}
+$$
+
+</div>
+
+<div class="mt-2 text-[10px] text-gray-500 bg-white p-1.5 rounded border border-gray-200">
+✅ 0 ₽ в моменты простоя<br/>
+⚠️ Растет линейно с трафиком
+</div>
+
+</div>
+</div>
+
+<div class="mt-3 text-xs">
+
+> **Точка безубыточности:** Если утилизация ниже ~15–20%, Pay-as-you-go (75–100 ₽/1M) выгоднее аренды GPU в облаке. Но если у вас стабильный поток (U > 30%) — своё железо выигрывает у всех в 2–5 раз (~33 ₽/1M).
+
+</div>
 
 ---
 layout: default
