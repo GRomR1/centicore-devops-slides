@@ -730,7 +730,7 @@ title: Спасибо за внимание
   <h2 class="font-bold">
     <a href="https://centi-conf.gainanov.pro/"
        target="_blank"
-       style="position: absolute; top: 400px; left: 65px;">
+       style="position: absolute; top: 400px; left: 90px;">
       centi-conf.gainanov.pro
     </a>
   </h2>
