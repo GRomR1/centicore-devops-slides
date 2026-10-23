@@ -3,7 +3,7 @@ name: Deploy Slidev to GitHub Pages
 on:
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
 
 permissions:
@@ -45,12 +45,11 @@ jobs:
           [ -e documents/public/assets ] || ln -s ../assets documents/public/assets
 
       - name: Build Slidev
-        run: |
-          pnpm exec slidev build documents/slides.md --base / --without-notes
+        run: pnpm run build:pages
 
       - name: Copy PDF & CNAME to dist
         run: |
-          echo "centicore-devops.gainanov.pro" > documents/dist/CNAME
+          echo "centi-conf.gainanov.pro" > documents/dist/CNAME
           cp documents/export.pdf documents/dist/export.pdf
 
       - name: Setup Pages

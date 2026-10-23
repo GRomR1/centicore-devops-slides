@@ -728,10 +728,10 @@ title: Спасибо за внимание
 <div class="t1-card" style="position: relative;
                             background: rgba(255, 255, 255, 0.0);">
   <h2 class="font-bold">
-    <a href="http://centicore-devops.gainanov.pro/"
+    <a href="https://centi-conf.gainanov.pro/"
        target="_blank"
        style="position: absolute; top: 400px; left: 65px;">
-      centicore-devops.gainanov.pro
+      centi-conf.gainanov.pro
     </a>
   </h2>
 </div>
