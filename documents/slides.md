@@ -50,6 +50,14 @@ title: Варианты оплаты
 ---
 
 ---
+layout: image
+image: /assets/subs-price-api-value.svg
+backgroundSize: contain
+class: bg-black
+title: Сколько по-настоящему стоит подписка
+---
+
+---
 layout: center
 title: Когда решил оплатить подписку в ChatGPT с юридического лица
 ---
@@ -356,7 +364,7 @@ title: Таблица со сравнением на 2026 год
 </div>
 
 <div class="mt-3 text-xs text-gray-600">
-  💡 <em>RTX 4090 — лидер по скорости и задержкам на моделях до 32B, но для 70B–120B+ требуются системы с объединенной памятью от 128 ГБ (AMD Halo, DGX Spark).</em>
+  💡 <em>RTX 4090 — лидер по скорости на моделях до 32B, но для моделей 70B–120B+ уже нужно VRAM от 128 ГБ (AMD Halo, DGX Spark).</em>
 </div>
 
 ---
@@ -416,7 +424,7 @@ title: "Юнит-экономика и расчеты: методика расч
 
 <div class="t1-card !p-2 !h-auto">
 
-<h4 class="!text-xs !mb-0.5 text-gray-800">1. Базовая формула</h4>
+<h4 class="!mb-1 text-gray-800">Базовая формула</h4>
 
 $$
 \text{Cost}_{1\text{M}} = \frac{\text{GPU\_hour\_price}}{\text{TPS}_{\text{peak}} \times U \times 3600} \times 10^6
@@ -432,7 +440,7 @@ $$
 
 <div class="t1-card !p-2 !h-auto">
 
-<h4 class="!text-xs !mb-0.5 text-gray-800">2. Стоимость GPU-часа (CAPEX)</h4>
+<h4 class="!mb-1 text-gray-800">Стоимость GPU-часа (CAPEX)</h4>
 
 $$
 \text{GPU\_hour} = \frac{\text{CAPEX}}{\text{Life}_{\text{hours}}} + P_{\text{kW}} \times \text{Tariff}
@@ -455,7 +463,9 @@ $$
 
 <div class="t1-card !p-2">
 
-#### 3. Расчёт для RTX 4090 ($\text{TPS}_{\text{peak}} = 45\text{ tok/s}$)
+<h4 class="!mb-1 text-gray-800">Расчёт для RTX 4090</h4>
+
+$\text{TPS}_{\text{peak}} = 45\text{ tok/s}$
 
 <div class="space-y-1">
 
@@ -504,7 +514,7 @@ title: "Аренда выделенного GPU RTX 4090 в Selectel"
 
 <div class="t1-card !p-2.5 !h-auto">
 
-<h4 class="!mb-1 text-gray-800">1. Параметры тарифа Selectel</h4>
+<h4 class="!mb-1 text-gray-800">Параметры тарифа Selectel</h4>
 
 <div class="text-[11px] text-gray-700 space-y-0.5">
 
@@ -530,7 +540,7 @@ $$
 
 <div class="t1-card !p-2.5 !h-auto">
 
-<h4 class="!mb-1 text-gray-800">2. Входные данные для инференса</h4>
+<h4 class="!mb-1 text-gray-800">Входные данные для инференса</h4>
 
 <div class="text-[11px] text-gray-600 space-y-0.5">
 
@@ -548,7 +558,7 @@ $$
 
 <div class="t1-card !p-2.5 !h-auto">
 
-#### 3. Расчёт стоимости при $U = 10\%$
+#### Расчёт стоимости при $U = 10\%$
 
 $$
 \text{Cost}_{1\text{M}} = \frac{\text{GPU\_hour}}{\text{TPS}_{\text{peak}} \times U \times 3600} \times 10^6
@@ -704,7 +714,7 @@ layout: default
 # Итоги
 
 - Локальный LLM — это про **контроль, безопасность и предсказуемость**, а не про «максимальное качество любой ценой».
-- В 2026 году открытые модели уже закрывают **80% повседневных IT-задач** (см. `harness`).
+- В 2026 году открытые модели уже закрывают **80% повседневных IT-задач** (см. [`harness`](https://en.wikipedia.org/wiki/Agent_harness)).
 - Главное — считать экономику и выбирать стек под реальную нагрузку.
 
 ---
@@ -715,7 +725,7 @@ class: bg-black
 title: Спасибо за внимание
 ---
 
-<div class="t1-card" style="position: relative; 
+<div class="t1-card" style="position: relative;
                             background: rgba(255, 255, 255, 0.0);">
   <h2 class="font-bold">
     <a href="http://centicore-devops.gainanov.pro/"

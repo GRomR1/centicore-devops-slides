@@ -11,6 +11,7 @@ This repository contains presentations and reports built using **Slidev**, a web
 - `pnpm run build:pages` - Build production SPA for GitHub Pages (`--base / --without-notes`).
 - `pnpm run preview` - Local preview of the production build in `documents/dist/` via Vite.
 - `pnpm run export` - Export the presentation to PDF format (uses Playwright Chromium).
+- `node scripts/gen-subs-chart.mjs` - Generate the subscription API-value chart (`subs-price-api-value.svg`) with Flint + Vega-Lite into `documents/assets/` and `documents/public/assets/`.
 
 ## Guidelines for Agents
 

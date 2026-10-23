@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "slidev documents/slides.md --bind 0.0.0.0 --port 3000",
+    "dev": "slidev documents/slides.md --bind 0.0.0.0",
     "build": "slidev build documents/slides.md",
     "build:pages": "slidev build documents/slides.md --base / --without-notes",
     "preview": "vite preview --outDir documents/dist",
@@ -11,7 +11,11 @@
   },
   "dependencies": {
     "@slidev/cli": "^52.14.1",
-    "@slidev/theme-default": "^0.25.0"
+    "@slidev/theme-default": "^0.25.0",
+    "flint-chart": "^1.0.1",
+    "vega": "^6.4.0",
+    "vega-embed": "^7.3.0",
+    "vega-lite": "^6.5.0"
   },
   "devDependencies": {
     "@iconify-json/mdi": "^1.2.3",
@@ -19,6 +23,5 @@
     "playwright-chromium": "^1.59.1",
     "pngjs": "^7.0.0",
     "vite": "^8.2.2"
-  },
-  "packageManager": "pnpm@11.20.0"
+  }
 }
