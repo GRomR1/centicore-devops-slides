@@ -6,7 +6,7 @@ info: Инфраструктура и софт для локального за�
 transition: slide-left
 download: '/export.pdf'
 favicon: '/favicon.svg'
-titleTemplate: '%s - Т1 ЛАМПА: Бэкэнд 2.0 (НН.2026)'
+titleTemplate: '%s - CENTI CONF - DevOps Day (06.11.2026)'
 ---
 
 # От ноутбука до multi-GPU
@@ -41,6 +41,27 @@ AI в 2026 году вышел далеко за пределы чата. Сце
 > Кто использует AI во всех сценариях? Ежедневно?
 
 </v-clicks>
+
+---
+layout: image
+image: /assets/jan-claude-ban0.jpg
+backgroundSize: contain
+title: Проблемы подписок
+---
+
+---
+layout: image
+image: /assets/jan-claude-ban1.jpg
+backgroundSize: contain
+title: Проблемы подписок
+---
+
+---
+layout: image
+image: /assets/jan-claude-ban2.jpg
+backgroundSize: contain
+title: Проблемы подписок
+---
 
 ---
 layout: image
@@ -237,6 +258,13 @@ layout: image
 image: /assets/soft-for-llm.png
 backgroundSize: contain
 title: Какой софт использовать для запуска LLM
+---
+
+---
+layout: image
+image: /assets/optimized-inference.jpg
+backgroundSize: contain
+title: Оптимизированный софт под определенные модели и железо
 ---
 
 ---
