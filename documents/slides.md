@@ -499,27 +499,27 @@ $\text{TPS}_{\text{peak}} = 45\text{ tok/s}$
 
 <div class="bg-white p-1 rounded border border-gray-200">
 
-**Высокая нагрузка ($U = 50\%$):** <span class="font-bold text-blue-600 float-right">~32.6 ₽ / 1M токенов</span>
+**Высокая нагрузка ($U = 50\%$):** <span class="font-bold text-blue-600 float-right">~326.3 ₽ / 1M токенов</span>
 
 $$
-\frac{26.43}{45 \times 0.50 \times 3600} \times 10^6 \approx 32.63\text{ руб.}
-$$
-
-</div>
-
-<div class="bg-white p-1 rounded border border-gray-200">
-
-**Офисный сценарий ($U = 10\%$):** <span class="font-bold text-orange-600 float-right">~163.1 ₽ / 1M токенов</span>
-
-$$
-\frac{26.43}{45 \times 0.10 \times 3600} \times 10^6 \approx 163.15\text{ руб.}
+\frac{26.43}{45 \times 0.50 \times 3600} \times 10^6 \approx 326.3\text{ руб.}
 $$
 
 </div>
 
 <div class="bg-white p-1 rounded border border-gray-200">
 
-**Редкие запросы ($U = 2\%$):** <span class="font-bold text-red-600 float-right">~815.7 ₽ / 1M токенов</span>
+**Офисный сценарий ($U = 10\%$):** <span class="font-bold text-orange-600 float-right">~1 631.5 ₽ / 1M токенов</span>
+
+$$
+\frac{26.43}{45 \times 0.10 \times 3600} \times 10^6 \approx 1 631.5\text{ руб.}
+$$
+
+</div>
+
+<div class="bg-white p-1 rounded border border-gray-200">
+
+**Редкие запросы ($U = 2\%$):** <span class="font-bold text-red-600 float-right">~8 157 ₽ / 1M токенов</span>
 
 </div>
 
@@ -596,11 +596,11 @@ $$
 <div class="text-[11px] text-gray-600">Подставляем значения:</div>
 
 $$
-\text{Cost}_{1\text{M}} = \frac{86.54}{45 \times 0.10 \times 3600} \times 10^6 \approx \mathbf{534.2\text{ руб.}}
+\text{Cost}_{1\text{M}} = \frac{86.54}{45 \times 0.10 \times 3600} \times 10^6 \approx \mathbf{5 342\text{ руб.}}
 $$
 
 <div class="text-xs font-bold text-orange-600 mt-0.5">
-~534 ₽ за 1 миллион токенов
+~5 342 ₽ за 1 миллион токенов
 </div>
 </div>
 
@@ -609,15 +609,15 @@ $$
 <div class="grid grid-cols-3 gap-1.5 text-center">
 <div class="p-1 bg-gray-50 rounded border border-gray-200">
 <div class="text-[10px] text-gray-500">Нагрузка 50%</div>
-<div class="text-xs font-bold text-blue-600">~106.8 ₽</div>
+<div class="text-xs font-bold text-blue-600">~1 068 ₽</div>
 </div>
 <div class="p-1 bg-orange-50 rounded border border-orange-200">
 <div class="text-[10px] text-gray-500">Нагрузка 10%</div>
-<div class="text-xs font-bold text-orange-600">~534.2 ₽</div>
+<div class="text-xs font-bold text-orange-600">~5 342 ₽</div>
 </div>
 <div class="p-1 bg-red-50 rounded border border-red-200">
 <div class="text-[10px] text-gray-500">Нагрузка 2%</div>
-<div class="text-xs font-bold text-red-600">~2 671 ₽</div>
+<div class="text-xs font-bold text-red-600">~26 710 ₽</div>
 </div>
 </div>
 
@@ -650,12 +650,12 @@ title: "Сравнение экономики 1M токенов: On-Premise, Sel
 
 <hr class="my-2 border-gray-200" />
 
-- При $U = 50\%$: **~33 ₽**
-- При $U = 10\%$: **~163 ₽**
-- При $U = 2\%$: **~816 ₽**
+- При $U = 50\%$: **~326 ₽**
+- При $U = 10\%$: **~1 631 ₽**
+- При $U = 2\%$: **~8 167 ₽**
 
 <div class="mt-3 text-[10px] text-gray-500 bg-white p-1.5 rounded border border-gray-200">
-✅ Мин. цена при нагрузке<br/>
+✅ Цена постоянна<br/>
 ⚠️ Нужен начальный бюджет
 </div>
 
@@ -671,13 +671,13 @@ title: "Сравнение экономики 1M токенов: On-Premise, Sel
 
 <hr class="my-2 border-gray-200" />
 
-- При $U = 50\%$: **~107 ₽**
-- При $U = 10\%$: **~534 ₽**
-- При $U = 2\%$: **~2 671 ₽**
+- При $U = 50\%$: **~1 068 ₽**
+- При $U = 10\%$: **~5 342 ₽**
+- При $U = 2\%$: **~26 710 ₽**
 
 <div class="mt-3 text-[10px] text-gray-500 bg-white p-1.5 rounded border border-gray-200">
 ✅ Быстрый старт без покупки<br/>
-⚠️ Оплата за всё время (24/7)
+⚠️ Оплата за всё время аренды
 </div>
 
 </div>
@@ -711,7 +711,7 @@ $$
 
 <div class="mt-3 text-xs">
 
-> **Точка безубыточности:** Если утилизация ниже ~15–20%, Pay-as-you-go (75–100 ₽/1M) выгоднее аренды GPU в облаке. Но если у вас стабильный поток (U > 30%) — своё железо выигрывает у всех в 2–5 раз (~33 ₽/1M).
+> **Точка безубыточности:** Во всех вариантах оплата за токены выигрывает, особенно большой разрыв при мин.утилизации. Если у вас стабильный поток (U > 50%) — своё железо выигрывает у аренды GPU в 2–5 раз. Аренда — быстрый старт и проверка гипотез.
 
 </div>
 
